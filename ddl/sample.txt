@@ -1,0 +1,11 @@
+
+-- // 테스트 테이블
+CREATE TABLE USERS (
+  USER_ID VARCHAR(30) PRIMARY KEY,
+	USER_NAME VARCHAR(50),
+	MOBILE VARCHAR(11),
+	REG_DATE timestamp NOT NULL DEFAULT current_timestamp() COMMENT '등록일'
+) engine=InnoDB default charset utf8;
+
+-- // 샘플데이터
+INSERT INTO USERS VALUES ( 'admin1', '어드민1', '01000000001', NOW())

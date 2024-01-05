@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration name="springbatch-test" monitorInterval="60">
+
+	<!-- Appenders -->
+	<Appenders>
+		<Console name="console" target="SYSTEM_OUT">
+			<PatternLayout pattern="[%date] [%thread] [%level] [%c{0}:%L] : %msg %n" />
+		</Console>
+		<RollingFile name="file" fileName="./logs/trace.log" filePattern="./logs/trace.log.%d{yyyy-MM-dd}">
+			<PatternLayout>
+				<pattern>[%date] [%thread] [%level] [%c{0}:%L]: %m%n</pattern>
+			</PatternLayout>
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1" modulate="true" />
+			</Policies>
+		</RollingFile>
+	</Appenders>
+
+	<!-- Application Loggers -->
+	<Loggers>
+		<Logger name="a.b.c" level="debug" />
+		<Logger name="org.mybatis.spring" level="debug" />
+		<Logger name="org.mybatis.spring.mapper" level="info" />
+		<Logger name="org.mybatis.spring.SqlSessionFactoryBean" level="info" />
+		
+		<Root level="info">
+			<AppenderRef ref="console" />
+			<AppenderRef ref="file" />
+		</Root>
+	</Loggers>
+
+</Configuration>

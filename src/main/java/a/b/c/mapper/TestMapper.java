@@ -1,0 +1,13 @@
+package a.b.c.mapper;
+
+import a.b.c.bean.User;
+import org.apache.ibatis.annotations.Mapper;
+
+import java.util.List;
+
+@Mapper
+public interface TestMapper {
+
+    List<User> execute();
+
+}
